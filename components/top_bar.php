@@ -10,7 +10,10 @@
 
         <ul class="navbar-nav align-items-center right-nav-link">
             <li class="nav-item dropdown-lg">
-                Wallet : <?= fetch_single_row($conn, "SELECT amount from main_wallet WHERE user_id = '$user_id'"); ?>
+                Account Wallet : <?= fetch_single_row($conn, "SELECT amount from main_wallet WHERE user_id = '$user_id'"); ?>
+            </li>
+            <li class="nav-item dropdown-lg ml-4">
+                Referal Wallet : <?= fetch_single_row($conn, "SELECT amount from refral_wallet WHERE user_id = '$user_id'"); ?>
 
             </li>
             <li class="nav-item">
@@ -30,7 +33,8 @@
                         </a>
                     </li>
                     <li class="dropdown-divider"></li>
-                    <a href="./index.php"></a><li class="dropdown-item"><i class="icon-envelope mr-2"></i> Add Funds</li>
+                    <a href="./index.php"></a>
+                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Add Funds</li>
                     <li class="dropdown-divider"></li>
                     <a href="./helpers/logout.php">
                         <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>

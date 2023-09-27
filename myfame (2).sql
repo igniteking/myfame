@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 10:08 PM
+-- Generation Time: Sep 27, 2023 at 01:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `myfame`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_details`
+--
+
+CREATE TABLE `bank_details` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `acc_holder_name` text NOT NULL,
+  `acc_number` text NOT NULL,
+  `bank_name` text NOT NULL,
+  `ifsc_code` text NOT NULL,
+  `created_at` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bank_details`
+--
+
+INSERT INTO `bank_details` (`id`, `user_id`, `acc_holder_name`, `acc_number`, `bank_name`, `ifsc_code`, `created_at`) VALUES
+(1, 1, 'Zaidan khan', '123456789', 'BOB', '123456789ABCD', '2023-09-27 17:09:43');
 
 -- --------------------------------------------------------
 
@@ -211,11 +234,17 @@ CREATE TABLE `widthrawl_request` (
 --
 
 INSERT INTO `widthrawl_request` (`id`, `user_id`, `amount`, `status`, `created_at`) VALUES
-(1, 1, '2', 'completed', '2023-09-27 00:46:27');
+(1, 1, '2', 'pending', '2023-09-27 00:46:27');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bank_details`
+--
+ALTER TABLE `bank_details`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
@@ -268,6 +297,12 @@ ALTER TABLE `widthrawl_request`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bank_details`
+--
+ALTER TABLE `bank_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`

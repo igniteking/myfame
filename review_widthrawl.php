@@ -44,6 +44,10 @@
                                                             <th>User Name</th>
                                                             <th>Status</th>
                                                             <th>Amount</th>
+                                                            <th>Account Holder Name</th>
+                                                            <th>Account Number</th>
+                                                            <th>Bank Name</th>
+                                                            <th>IFSC Code</th>
                                                             <th>Action (s)</th>
                                                         </tr>
                                                     </thead>
@@ -63,21 +67,33 @@
                                                             } else {
                                                                 $statuss = '<button class="btn btn-danger">rejected</button>';
                                                             }
-                                                            echo '
+                                                            $get_orders = mysqli_query($conn, "SELECT * FROM bank_details WHERE user_id = '$get_user_id'");
+                                                            while ($row = mysqli_fetch_array($get_orders)) {
+                                                                $acc_holder_name = $row['acc_holder_name'];
+                                                                $acc_number = $row['acc_number'];
+                                                                $bank_name = $row['bank_name'];
+                                                                $ifsc_code = $row['ifsc_code'];
+
+                                                                echo '
                                                     <tr>
                                                     <td>' . $order_id . '</td>
                                                 <td>' . $oreder_username . '</td>
                                                 <td>' . $statuss . '</td>
                                                 <td>' . $amount . '</td>
+                                                <td>' . $acc_holder_name . '</td>
+                                                <td>' . $acc_number . '</td>
+                                                <td>' . $bank_name . '</td>
+                                                <td>' . $ifsc_code . '</td>
                                                 <td>';
-                                                            if ($get_statuss == 'pending') {
-                                                                echo '  <button hx-get="./helpers/widthrawl_status.php?req_id=' . $order_id . '&status=accept&get_user_id=' . $get_user_id . '" hx-trigger="click" hx-target="#notify" class="btn icon btn-success">Accept</button>
+                                                                if ($get_statuss == 'pending') {
+                                                                    echo '  <button hx-get="./helpers/widthrawl_status.php?req_id=' . $order_id . '&status=accept&get_user_id=' . $get_user_id . '" hx-trigger="click" hx-target="#notify" class="btn icon btn-success">Accept</button>
                                                                     <button hx-get="./helpers/widthrawl_status.php?req_id=' . $order_id . '&status=reject&get_user_id=' . $get_user_id . '" hx-trigger="click" hx-target="#notify" class="btn icon btn-danger">Reject</button>
                                                                         ';
-                                                            } else {
-                                                                echo '</td>
+                                                                } else {
+                                                                    echo '</td>
                                                 </tr>
                                                 ';
+                                                                }
                                                             }
                                                         }
                                                         ?>

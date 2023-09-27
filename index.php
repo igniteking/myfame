@@ -90,13 +90,17 @@
           <div class="card col-md-12">
             <div class="card-content">
               <div class="card-body">
-                <div class="card-heading">Minimum recharge is Rs 10</div>
+                <marquee direction="left" style="color: #38b000;">
+                  Minimum recharge is Rs 10
+                </marquee>
                 <hr>
-                <div class="card-heading">After completing total recharge of Rs500 You will get 20% extra fund.</div>
+                <marquee direction="left" style="color: #38b000;">
+                  After completing total recharge of Rs500 You will get 20% extra fund.
+                </marquee>
               </div>
               <center>
                 <a href="./view_orders.php">
-                  <div class="card-footer">View Your Orders</div>
+                  <div class="card-footer text-dark">View Your Orders</div>
                 </a>
               </center>
             </div>
