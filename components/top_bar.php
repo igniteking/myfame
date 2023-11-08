@@ -33,8 +33,9 @@
                         </a>
                     </li>
                     <li class="dropdown-divider"></li>
-                    <a href="./index.php"></a>
-                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Add Funds</li>
+                    <a href="./index.php">
+                        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Add Funds</li>
+                    </a>
                     <li class="dropdown-divider"></li>
                     <a href="./helpers/logout.php">
                         <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>

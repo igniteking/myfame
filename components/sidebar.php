@@ -1,8 +1,8 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
   <div class="brand-logo">
-    <a href="index.html">
+    <a href="index.php">
       <!-- <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon"> -->
-      <h5 class="logo-text">MyFame</h5>
+      <h5 class="logo-text">Fusion X Fame</h5>
     </a>
   </div>
   <ul class="sidebar-menu do-nicescrol">
@@ -31,7 +31,7 @@
         </a>
       </li>
 
-      
+
       <li>
         <a href="add_package.php">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Add Package</span>
@@ -40,6 +40,11 @@
       <li>
         <a href="view_categories.php">
           <i class="zmdi zmdi-face"></i> <span>View Category</span>
+        </a>
+      </li>
+      <li>
+        <a href="all_users.php">
+          <i class="zmdi zmdi-face"></i> <span>View All Users</span>
         </a>
       </li>
       <li>

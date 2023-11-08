@@ -25,7 +25,7 @@
                 <!--Start Dashboard Content-->
 
                 <div class="page-heading">
-                    <h3>Package List</h3>
+                    <h3>Order List</h3>
                 </div>
                 <div class="page-content">
                     <!-- Hoverable rows start -->
@@ -41,39 +41,41 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Category Name</th>
-                                                            <th>Sub Category Name</th>
-                                                            <th>Discription</th>
-                                                            <th>Date</th>
+                                                            <th>User Name</th>
+                                                            <th>User Emaiml</th>
+                                                            <th>User Code</th>
+                                                            <th>Referal Code</th>
                                                             <th>Action (s)</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $get_requests = mysqli_query($conn, "SELECT * FROM package ORDER BY id DESC");
-                                                        while ($row = mysqli_fetch_array($get_requests)) {
-                                                            $req_id = $row['id'];
-                                                            $category_name = $row['package_name'];
-                                                            $category_description = $row['package_description'];
-                                                            $category_id = $row['category_id'];
-                                                            $category_name = fetch_single_row($conn, "SELECT category_name FROM categories WHERE id = $category_id");
+                                                        $get_orders = mysqli_query($conn, "SELECT * FROM user_data WHERE user_type = 'user' ORDER BY id DESC");
+                                                        while ($row = mysqli_fetch_array($get_orders)) {
+                                                            $user_get_id = $row['id'];
+                                                            $user_name = $row['user_name'];
+                                                            $user_email = $row['user_email'];
+                                                            $code = $row['code'];
+                                                            $my_code = $row['mycode'];
                                                             $created_at = $row['created_at'];
                                                             echo '
                                                     <tr>
-                                                    <td>' . $req_id . '</td>
-                                                    <td>' . $category_name . '</td>
-                                                <td class="text-bold-500">' . $category_name . '</td>
-                                                <td>' . $category_description . '</td>
+                                                    <td>' . $user_get_id . '</td>
+                                                <td class="text-bold-500">' . $user_name . '</td>
+                                                <td>' . $user_email . '</td>
+                                                <td>' . $my_code . '</td>
+                                                <td>' . $code . '</td>
                                                 <td>' . $created_at . '</td>
                                                 <td>
-                                                <a href="./edit_package.php?pack_id=' . $req_id . '"><button class="btn icon btn-info">Edit</button></a>
-                                                <button hx-get="./helpers/delete_package.php?req_id=' . $req_id . '" hx-trigger="click" hx-target="#notify" class="btn icon btn-danger">Delete</button>
+                                                <button hx-get="./helpers/delete_users.php?req_id=' . $user_get_id . '" hx-trigger="click" hx-target="#notify" class="btn icon btn-danger">Delete</button>
                                                 </td>
                                                 </tr>
                                                 ';
                                                         }
+
                                                         ?>
-                                                    <div id="notify"></div>
+                                                        <!-- <button hx-get="./helpers/order_status.php?req_id=' . $order_id . '&status=reject" hx-trigger="click" hx-target="#notify" class="btn icon btn-danger"><i class="bi bi-x-lg"></i></button> -->
+                                                        <div id="notify"></div>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -84,6 +86,7 @@
                     </section>
                     <!-- Hoverable rows end -->
                 </div>
+
                 <!--End Dashboard Content-->
 
                 <!--start overlay-->
